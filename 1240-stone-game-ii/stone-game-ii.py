@@ -3,13 +3,11 @@ class Solution:
         n = len(piles)
         suffix_sums = [0] * (n + 1)
         
-        # Calculate suffix sums
         for i in range(n - 1, -1, -1):
             suffix_sums[i] = suffix_sums[i + 1] + piles[i]
         
         memo = [[0] * (n + 1) for _ in range(n)]
         
-        # Function to determine the maximum stones Alice can get
         def max_stones_for_alice(m: int, i: int) -> int:
             if i >= n:
                 return 0
